@@ -14,6 +14,7 @@ Plugin 'gmarik/Vundle.vim'
 Bundle 'vim-scripts/bash-support.vim'
 "Bundle 'tpope/vim-sensible'
 Bundle 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -53,3 +54,7 @@ if has('gui_running')
 	    let g:solarized_termcolors=256
 	    colorscheme solarized
 	endif
+  autocmd vimenter * NERDTree
+  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+  let NERDTreeShowHidden=1
+  autocmd VimEnter * wincmd p

@@ -14,6 +14,7 @@ Plugin 'gmarik/Vundle.vim'
 Bundle 'tpope/vim-sensible'
 Bundle 'vim-scripts/bash-support.vim'
 Bundle 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -51,3 +52,7 @@ endif
 let g:BASH_AuthorName   = 'Matthew Staver'
 let g:BASH_Email        = 'mstaver@verdantservices.com'
 let g:BASH_Company      = 'Verdant Services, Inc.'
+autocmd vimenter * NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let NERDTreeShowHidden=1
+autocmd VimEnter * wincmd p
